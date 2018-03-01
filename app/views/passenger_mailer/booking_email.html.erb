@@ -1,0 +1,18 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+<h1>You have booked a flight, <%= @passenger.name %>!</h1>
+<h3>
+  Your flight details are:
+</h3>
+<p>From airport <%= @from %></p>
+<p>To airport <%= @to %></p>
+<p>Date and time: <%= @date %></p>
+<p>Flight duration: <%= distance_of_time_in_words(@duration) %></p>
+<p>Thanks for booking using us and have a great day!</p>
+</body>
+</html>

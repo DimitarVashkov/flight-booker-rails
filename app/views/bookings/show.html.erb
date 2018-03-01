@@ -5,6 +5,7 @@
 <p>To: <%= @booking.flight.to_airport.name %> </p>
 <% @booking.passengers.each do |p| %>
   <p>Passenger name: <%=p.name %></p>
+  <p>Email: <%=p.email %></p>
   <% end %>
 <p>Date: <%= @booking.flight.flight_date %></p>
 <p>Duration:

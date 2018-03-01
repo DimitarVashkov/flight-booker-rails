@@ -15,6 +15,8 @@
     <h2>Passenger <%= p.options[:child_index] +1%> </h2>
     <%= p.label :name %>
     <%= p.text_field :name%>
+    <%= p.label :email %>
+    <%= p.email_field :email%>
     <hr>
     <% end %>
   <%= booking.submit "Book flight" %>
