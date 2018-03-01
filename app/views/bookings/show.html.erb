@@ -1,0 +1,11 @@
+<h1>Show final booking</h1>
+
+
+<p>From: <%= @booking.flight.from_airport.name %></p>
+<p>To: <%= @booking.flight.to_airport.name %> </p>
+<% @booking.passengers.each do |p| %>
+  <p>Passenger name: <%=p.name %></p>
+  <% end %>
+<p>Date: <%= @booking.flight.flight_date %></p>
+<p>Duration:
+  <%=distance_of_time_in_words @booking.flight.duration %></p>

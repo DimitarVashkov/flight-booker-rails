@@ -1,7 +1,23 @@
 <h1>Bookings</h1>
 
-<%= @flight.from_airport.name%>
-<%= @flight.to_airport.name%>
-<%= @flight.flight_date%>
-<%= distance_of_time_in_words(@flight.duration) %>
-<%= @passengers %>
+<h3>Booking info</h3>
+<h3>From: <%= @flight.from_airport.name%> |
+    To: <%= @flight.to_airport.name%> |
+    Date: <%= @flight.flight_date%> |
+    Duration: <%= distance_of_time_in_words(@flight.duration) %> |
+    Passengers: <%= @passengers %></h3>
+
+<hr>
+
+<%= form_for(@booking) do |booking| %>
+  <%= booking.hidden_field(:flight_id, value: @flight.id)%>
+  <%= booking.fields_for :passengers do |p| %>
+    <h2>Passenger <%= p.options[:child_index] +1%> </h2>
+    <%= p.label :name %>
+    <%= p.text_field :name%>
+    <hr>
+    <% end %>
+  <%= booking.submit "Book flight" %>
+<% end %>
+
+
