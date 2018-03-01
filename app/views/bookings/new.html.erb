@@ -1,0 +1,7 @@
+<h1>Bookings</h1>
+
+<%= @flight.from_airport.name%>
+<%= @flight.to_airport.name%>
+<%= @flight.flight_date%>
+<%= distance_of_time_in_words(@flight.duration) %>
+<%= @passengers %>

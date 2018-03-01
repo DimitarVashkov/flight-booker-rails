@@ -1,3 +1,19 @@
 <h1>Flights</h1>
 
 <%= render 'search' %>
+
+
+<% if !@flights.nil? %>
+  <%= form_tag new_booking_path, method: "get" do %>
+        <%= hidden_field "flight", "passengers", value: @passengers %>
+          <% @flights.each do |f| %>
+                <h4>From :<%= f.from_airport.name %> |
+                    To: <%= f.to_airport.name %> |
+                    Time: <%= f.flight_date %> |
+                    Duration: <%= distance_of_time_in_words(f.duration) %> |
+                <%= radio_button "flight", "flight_id", f.id  %></h4>
+                <hr>
+          <% end %>
+    <h3><%= submit_tag("Select flight") %> </h3>
+    <% end %>
+<% end %>
